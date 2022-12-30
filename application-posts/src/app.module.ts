@@ -6,6 +6,7 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { User } from './posts/dto/user';
 import { PostsModule } from './posts/posts.module';
+import { LoggingPlugin } from './shared/plugins/logging.plugin';
 
 @Module({
   imports: [
@@ -19,5 +20,6 @@ import { PostsModule } from './posts/posts.module';
     }),
     PostsModule,
   ],
+  providers: [LoggingPlugin],
 })
 export class AppModule {}
