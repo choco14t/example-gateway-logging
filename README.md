@@ -9,12 +9,49 @@ This project using stack below.
 
 ## Run application
 
-wip
+Launch the two applications first, then the gateway. Otherwise the gateway failed launch.
+
+```sh
+cd application-posts && yarn start
+```
+
+```sh
+cd application-users && yarn start
+```
+
+```sh
+cd gateway && yarn start
+```
 
 ## Access gateway
 
-wip
+You can access the gateway at http://localhost:3000.
 
 ## Example combined query
 
-wip
+```graphql
+query QueryPosts {
+  posts {
+    id
+    title
+    user {
+      id
+      name
+    }
+  }
+}
+```
+
+```graphql
+query userWithPosts($userId: ID!) {
+  user(id: $userId) {
+    id
+    name
+    posts {
+      authorId
+      id
+      title
+    }
+  }
+}
+```
