@@ -3,6 +3,7 @@ import { ApolloGatewayDriver, ApolloGatewayDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { v4 } from 'uuid';
+import { LoggingPlugin } from './shared/plugins/logging.plugin';
 
 @Module({
   imports: [
@@ -31,5 +32,6 @@ import { v4 } from 'uuid';
       },
     }),
   ],
+  providers: [LoggingPlugin],
 })
 export class AppModule {}
