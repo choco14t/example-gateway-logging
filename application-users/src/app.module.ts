@@ -4,6 +4,7 @@ import {
 } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
+import { LoggingPlugin } from './shared/plugins/logging.plugin';
 import { UsersModule } from './users/users.module';
 
 @Module({
@@ -15,5 +16,6 @@ import { UsersModule } from './users/users.module';
     }),
     UsersModule,
   ],
+  providers: [LoggingPlugin],
 })
 export class AppModule {}
